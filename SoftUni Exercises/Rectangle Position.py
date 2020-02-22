@@ -1,3 +1,4 @@
+# Declaring the variables from the input
 fR = input('First rectangle - x, y(points to start), width, height: ')
 sR = input('Second rectangle - x, y(points to start), width, height: ')
 fR = [int(x) for x in fR.split()]
@@ -13,7 +14,8 @@ class Rectangle:
         self.y = y
         self.x1 = x + width
         self.y1 = y + height
-    
+
+# Creating the objects   
 fRect = Rectangle(fR[0], fR[1], fR[2], fR[3])
 sRect = Rectangle(sR[0], sR[1], sR[2], sR[3])
 
