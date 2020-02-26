@@ -1,6 +1,7 @@
-n = int(input('Num: '))
+fac = int(input('Factorial: '))
+n = fac
 f = 1
-for i in range(0, n):
+while n > 1:
     f = f * n
     n -= 1
-print(f)
+print(f'{fac}! is equal to {f}')
