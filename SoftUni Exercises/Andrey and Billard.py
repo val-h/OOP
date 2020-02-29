@@ -37,12 +37,11 @@ while True:
     else:   # Creating a list of information from the cmd
         cmd = cmd.replace('-', ' ').replace(',', ' ')
         customer_order = cmd.split()
-        print(customer_order)
         if customer_order[1] in product_prices.keys():  # Creating instances of Customer
             customers.append(Customer(customer_order[0], customer_order[1], customer_order[2]))
 
 # Output
 for cust in sorted(customers, key=lambda x: x.name):
     total_bill += cust.bill
-    print(cust.PrintOrders())
+    print(cust.PrintOrders())   # i dont know from where the 'None' comes from
 print(f'Total bill: {total_bill}')
