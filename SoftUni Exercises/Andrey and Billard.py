@@ -14,15 +14,18 @@ class Customer:
         self.name = name
         self.product = product
         self.quantity = int(quantity)
-        if product not in self.orders: self.orders[product] = quantity
-        else: self.orders[product] += quantity        
         self.bill += self.quantity * product_prices[self.product]
+        if product not in self.orders: 
+            self.orders[product] = quantity
+        else: 
+            self.orders[product] += quantity        
 
+    # Printing the orders that person made
     def PrintOrders(self):
         print(self.name)
         for prod, quant in sorted(self.orders.items(), key=lambda item: item[0]):
             print(f'-- {prod} - {quant}')
-        print(f'Bill: {self.bill}')
+        print(f'Bill: {self.bill:.2f}')
 
 # Receiving and storing the products
 for i in range(0, number_of_products):
@@ -38,10 +41,11 @@ while True:
         cmd = cmd.replace('-', ' ').replace(',', ' ')
         customer_order = cmd.split()
         if customer_order[1] in product_prices.keys():  # Creating instances of Customer
+            # TODO add logic to make the customers unique and not making duplicate orders
             customers.append(Customer(customer_order[0], customer_order[1], customer_order[2]))
 
 # Output
 for cust in sorted(customers, key=lambda x: x.name):
     total_bill += cust.bill
     print(cust.PrintOrders())   # i dont know from where the 'None' comes from
-print(f'Total bill: {total_bill}')
+print(f'Total bill: {total_bill:.2f}')
