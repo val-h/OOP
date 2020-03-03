@@ -1,7 +1,7 @@
-import datetime
+from datetime import datetime as dt
 day = input('Date: ')
 targetDate = [int(x) for x in day.split('-')]
-date = datetime.date(targetDate[2], targetDate[1], targetDate[0])
+date = dt(targetDate[2], targetDate[1], targetDate[0])
 
 if date.weekday() == 0: print('Monday')
 elif date.weekday() == 1: print('Tuesday')
